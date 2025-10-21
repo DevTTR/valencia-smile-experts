@@ -10,7 +10,53 @@
   <meta property="og:description" content="Implants, cosmetic and general dentistry. Same-day appointments. Book online.">
   <meta property="og:type" content="website">
 
+  <!-- Google Fonts - DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
   <style>
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--ids-muted);
+    }
+
+    .close-modal:hover {
+      color: var(--ids-accent);
+    }
+
     :root {
       --ids-bg: #fff;
       --ids-txt: #1e293b;
@@ -39,7 +85,7 @@
       padding: 0;
       background: var(--ids-bg);
       color: var(--ids-txt);
-      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+      font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
       line-height: 1.5;
       font-size: 16px;
     }
@@ -718,6 +764,35 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    /* Hero Button Hover Effects */
+    .ids-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251, 127, 42, 0.4) !important;
+    }
+
+    .ids-btn-outline:hover {
+      transform: translateY(-2px);
+      background: #FB7F2A !important;
+      color: white !important;
+    }
+
+    /* Benefit Cards Hover */
+    .ids-usp [role="listitem"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
     /* Responsive Adjustments */
     @media (min-width: 1024px) {
       .ids-hero .ids-row {
@@ -789,8 +864,7 @@
   <header class="ids-header" role="banner">
     <div class="ids-container ids-header-inner">
       <div class="ids-logo" aria-label="Ideal Dental Solutions">
-        <div style="width:36px;height:36px;border-radius:8px;background:#eef2f7;border:1px dashed #c7d2fe"></div>
-        <span>Ideal Dental Solutions</span>
+        <img src="Ideal dental solutions Pictures/Logo/logo ideal dental.png" alt="Ideal Dental Solutions" style="height: 50px; width: auto;">
       </div>
       <div class="ids-phone">
         <a href="tel:+1XXXXXXXXXX">Call: (XXX) XXX-XXXX</a>
@@ -798,87 +872,247 @@
     </div>
   </header>
 
-  <section class="ids-hero" aria-label="Hero">
-    <div class="ids-container">
-      <div class="ids-row">
-        <div class="ids-col">
-          <span class="ids-tag">Free Consultation</span>
-          <h1>Confident Smiles Start Here — <span class="ids-accent">Implants, Cosmetic & Full-Service Dentistry</span></h1>
-          <p class="lead">New patients: Free consultation. Ask about our 2 visits, 1 smile option.</p>
+  <section class="ids-hero" aria-label="Hero" style="background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%); padding: 4rem 0 5rem; position: relative; overflow: hidden;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(251, 127, 42, 0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+    
+    <div class="ids-container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1;">
+      <div class="ids-row" style="display: flex; flex-wrap: wrap; margin: 0 -1rem; align-items: center; gap: 2rem 0;">
+        <!-- Left Column - Content -->
+        <div class="ids-col" style="flex: 1 1 48%; min-width: 320px; padding: 0 1rem;">
+          <!-- Tags -->
+          <div class="tags-container" style="display: flex; gap: 0.625rem; margin-bottom: 2rem; flex-wrap: wrap; animation: fadeInUp 0.6s ease;">
+            <span class="tag" style="background: linear-gradient(135deg, rgba(251, 127, 42, 0.12) 0%, rgba(251, 127, 42, 0.08) 100%); color: #FB7F2A; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8125rem; font-weight: 600; display: inline-flex; align-items: center; border: 1px solid rgba(251, 127, 42, 0.2); backdrop-filter: blur(10px);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              Free Consultation
+            </span>
+            <span class="tag" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%); color: #10b981; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8125rem; font-weight: 600; display: inline-flex; align-items: center; border: 1px solid rgba(16, 185, 129, 0.2); backdrop-filter: blur(10px);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              4.9/5 Rating
+            </span>
+          </div>
+          
+          <!-- Main Heading -->
+          <h1 style="font-size: clamp(2.5rem, 5vw, 3.75rem); line-height: 1.1; margin: 0 0 1.5rem 0; color: #0f172a; font-weight: 800; letter-spacing: -0.03em; animation: fadeInUp 0.6s ease 0.1s backwards;">
+            Your Perfect Smile <span style="background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; margin-top: 0.25rem;">Starts Here</span>
+          </h1>
+          
+          <!-- Subheading -->
+          <p class="lead" style="font-size: 1.1875rem; color: #475569; margin-bottom: 2.5rem; line-height: 1.7; max-width: 540px; animation: fadeInUp 0.6s ease 0.2s backwards;">
+            Expert dental care in a comfortable, modern environment. <strong style="color: #1e293b;">New patients receive a free consultation</strong> with our dental experts.
+          </p>
 
-          <div class="ids-usp" role="list">
-            <div role="listitem">✓ Same-Day Appointments</div>
-            <div role="listitem">✓ Insurance & Financing</div>
+          <!-- Benefits List -->
+          <div class="ids-usp" role="list" style="margin-bottom: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; animation: fadeInUp 0.6s ease 0.3s backwards;">
+            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">Same-Day Appointments</span>
+            </div>
+            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">All Insurance Accepted</span>
+            </div>
+            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">Flexible Financing</span>
+            </div>
           </div>
 
-          <div class="ids-cta-wrap">
-            <button class="ids-btn ids-btn-primary" data-ids-open-modal>Claim Free Consultation</button>
+          <!-- CTA Buttons -->
+          <div class="ids-cta-wrap" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; animation: fadeInUp 0.6s ease 0.4s backwards;">
+            <button class="ids-btn ids-btn-primary" id="openSchedulingModal" style="padding: 1.125rem 2.25rem; font-size: 1.0625rem; border-radius: 12px; white-space: nowrap; background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); color: white; border: none; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(251, 127, 42, 0.3); position: relative; overflow: hidden;">
+              <span style="position: relative; z-index: 1; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Book Free Consultation
+              </span>
+            </button>
+            <a href="tel:+1XXXXXXXXXX" class="ids-btn ids-btn-outline" style="padding: 1.125rem 2rem; font-size: 1.0625rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 0.625rem; white-space: nowrap; background: white; color: #FB7F2A; border: 2px solid #FB7F2A; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>(XXX) XXX-XXXX</span>
+            </a>
           </div>
-          <div class="ids-disclaimer">Limited-time offer. Subject to availability.</div>
-
-          <!-- Optional hero background image can be applied to the section via CSS inline style in WP template. -->
+          
+          <!-- Disclaimer -->
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: #64748b; animation: fadeInUp 0.6s ease 0.5s backwards;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <span>Limited-time offer. Subject to availability.</span>
+          </div>
         </div>
-        <div class="ids-col">
-          <div class="ids-card ids-form" id="ids-form" aria-live="polite">
-            <h3>Request Your Appointment</h3>
-            <form id="leadForm" novalidate>
-              <div class="ids-grid">
-                <div>
-                  <label class="ids-small" for="lfName">Full name</label>
-                  <input class="ids-input" id="lfName" name="name" type="text" placeholder="John Doe" required>
+
+        <!-- Right Column - Form -->
+        <div class="ids-col" style="flex: 1 1 50%; min-width: 340px; padding: 0 1rem;">
+          <div style="background: white; border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); overflow: hidden; border: 1px solid #e5e7eb;">
+            <div style="background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); color: white; padding: 2rem; text-align: center; position: relative;">
+              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h20v20H0z\" fill=\"none\"/%3E%3Cpath d=\"M10 0L0 10l10 10 10-10z\" fill=\"%23fff\" opacity=\".05\"/%3E%3C/svg%3E'); opacity: 0.1;"></div>
+              <div style="position: relative; z-index: 1;">
+                <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin-bottom: 1rem;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
                 </div>
-                <div>
-                  <label class="ids-small" for="lfPhone">Phone</label>
-                  <input class="ids-input" id="lfPhone" name="phone" type="tel" inputmode="tel" placeholder="(555) 555-5555" required>
-                </div>
-                <div>
-                  <label class="ids-small" for="lfEmail">Email</label>
-                  <input class="ids-input" id="lfEmail" name="email" type="email" placeholder="you@email.com" required>
-                </div>
-                <div>
-                  <label class="ids-small" for="lfService">Service</label>
-                  <select class="ids-select" id="lfService" name="service" required>
-                    <option value="" disabled selected>Select a service</option>
-                    <option>Dental Implants</option>
-                    <option>Preventive Dentistry</option>
-                    <option>Restorative Dentistry</option>
-                    <option>Cosmetic Dentistry</option>
-                    <option>Periodontal Dentistry</option>
-                    <option>Other / Not sure</option>
-                  </select>
+                <h3 style="margin: 0; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.025em;">Book Your Appointment</h3>
+                <p style="margin: 0.75rem 0 0; opacity: 0.95; font-size: 1.0625rem; font-weight: 400;">Free consultation • Same-day available</p>
+              </div>
+            </div>
+            <div style="padding: 0; background: white; position: relative;">
+              <div style="height: 600px; overflow: hidden; position: relative;">
+                <iframe 
+                  src="https://api.leadconnectorhq.com/widget/booking/KQZfzdiSjhZSSk89S37W" 
+                  style="width: 100%; height: 100%; border: none; display: block;" 
+                  scrolling="auto" 
+                  id="KQZfzdiSjhZSSk89S37W_hero"
+                  title="Schedule Your Appointment"
+                  allow="geolocation"
+                  loading="lazy">
+                </iframe>
+              </div>
+              <div style="padding: 1.5rem; background: #f9fafb; border-top: 1px solid #e5e7eb;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #6b7280; font-size: 0.8125rem; text-align: center; line-height: 1.5;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  <span>Secure & confidential. We respect your privacy.</span>
                 </div>
               </div>
-              <div class="ids-grid-1">
-                <div>
-                  <label class="ids-small" for="lfNotes">Notes (optional)</label>
-                  <textarea class="ids-textarea" id="lfNotes" name="notes" rows="3" placeholder="Tell us a little about your goals"></textarea>
-                </div>
-              </div>
-              <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
-                <button class="ids-btn ids-btn-primary" type="submit">Request Appointment</button>
-                <button class="ids-btn ids-btn-outline" type="button" data-ids-open-modal>See Calendar</button>
-              </div>
-              <div class="ids-small">By submitting, you agree to be contacted by phone/SMS. Msg/data rates may apply.</div>
-              <div id="lfStatus" class="ids-small" role="status" aria-live="polite"></div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="ids-reassure" aria-label="Assurances">
-    <div class="ids-container">
-      <div class="ids-items">
-        <div class="item"><a href="https://share.google/Q0Q20YEoVYd0kGYAS" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:none;">⭐ 4.7★ on Google</a></div>
-        <div class="item"><a href="https://www.yelp.com/biz/ideal-dental-solutions-arlington" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:none;">⭐ 4.0★ on Yelp</a></div>
-        <div class="item">🛡️ Insurance Accepted</div>
-        <div class="item">💳 Flexible Financing</div>
-        <div class="item">🕒 Same-Day Appointments</div>
-        <div class="item">🧑‍⚕️ Experienced Team</div>
+  <!-- Scheduling Modal (for mobile) -->
+  <div id="schedulingModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 95%; width: 500px; margin: 2rem auto; padding: 1.5rem;">
+      <button class="close-modal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #94a3b8;">&times;</button>
+      <h2 style="margin: 0 0 1.5rem 0; color: #0f172a; font-size: 1.5rem; font-weight: 700;">Schedule Your Appointment</h2>
+      <div style="background: white; border-radius: 12px; overflow: hidden;">
+        <iframe 
+          src="https://api.leadconnectorhq.com/widget/booking/KQZfzdiSjhZSSk89S37W" 
+          style="width: 100%; border: none; min-height: 600px;" 
+          scrolling="no" 
+          id="KQZfzdiSjhZSSk89S37W_modal"
+          title="Schedule Appointment">
+        </iframe>
+        <div class="ids-small" style="margin: 1rem; color: #94a3b8; font-size: 0.75rem; text-align: center;">
+          By submitting, you agree to be contacted by phone/SMS. Msg/data rates may apply.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="ids-reassure" aria-label="Assurances" style="background: white; padding: 2rem 0; border-top: 1px solid #e2e8f0;">
+    <div class="ids-container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <div class="ids-items" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; align-items: stretch;">
+        
+        <!-- Google Review -->
+        <a href="https://share.google.com/Q0Q20YEoVYd0kGYAS" target="_blank" rel="nofollow noopener" class="item" style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); height: 44px; white-space: nowrap;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <div style="display: flex; align-items: center; gap: 0.375rem;">
+            <span style="font-weight: 600; color: #1f2937; font-size: 0.875rem; line-height: 1;">4.7</span>
+            <span style="color: #fbbf24; font-size: 0.75rem; line-height: 1;">★★★★★</span>
+            <span style="color: #6b7280; font-size: 0.875rem; font-weight: 400; line-height: 1;">Google</span>
+          </div>
+        </a>
+
+        <!-- Yelp Review -->
+        <a href="https://www.yelp.com/biz/ideal-dental-solutions-arlington" target="_blank" rel="nofollow noopener" class="item" style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); height: 44px; white-space: nowrap;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#d32323" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5.395 14.789l-1.724.994c-.316.182-.724.074-.906-.242l-2.76-4.782c-.182-.316-.074-.724.242-.906l1.724-.994c.316-.182.724-.074.906.242l2.76 4.782c.182.316.074.724-.242.906zm-10.79 0c-.316.182-.724.074-.906-.242l-2.76-4.782c-.182-.316-.074-.724.242-.906l1.724-.994c.316-.182.724-.074.906.242l2.76 4.782c.182.316.074.724-.242.906l-1.724.994z"/>
+          </svg>
+          <div style="display: flex; align-items: center; gap: 0.375rem;">
+            <span style="font-weight: 600; color: #1f2937; font-size: 0.875rem; line-height: 1;">4.0</span>
+            <span style="color: #d32323; font-size: 0.75rem; line-height: 1;">★★★★☆</span>
+            <span style="color: #6b7280; font-size: 0.875rem; font-weight: 400; line-height: 1;">Yelp</span>
+          </div>
+        </a>
+
+        <!-- Insurance -->
+        <div class="item" style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); height: 44px; white-space: nowrap;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span style="color: #374151; font-size: 0.875rem; font-weight: 500; line-height: 1;">Insurance Accepted</span>
+        </div>
+
+        <!-- Financing -->
+        <div class="item" style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); height: 44px; white-space: nowrap;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          <span style="color: #374151; font-size: 0.875rem; font-weight: 500; line-height: 1;">Flexible Financing</span>
+        </div>
+
+        <!-- Same-Day -->
+        <div class="item" style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); height: 44px; white-space: nowrap;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span style="color: #374151; font-size: 0.875rem; font-weight: 500; line-height: 1;">Same-Day Available</span>
+        </div>
+
+        <!-- Experienced Team -->
+        <div class="item" style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05); height: 44px; white-space: nowrap;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span style="color: #374151; font-size: 0.875rem; font-weight: 500; line-height: 1;">Experienced Team</span>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <style>
+    .ids-reassure .item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-color: #d1d5db;
+    }
+  </style>
 
   <section class="ids-section ids-alt" aria-label="Services">
     <div class="ids-container">
@@ -947,35 +1181,282 @@
       </div>
       <div class="ids-media-bar" aria-label="Media">
         <div class="ids-media-ph">Service Image Placeholder (replace with clinic/service image)</div>
-        <div class="ids-media-ph ids-video-ph">Video Placeholder (embed testimonial/clinic explainer)</div>
       </div>
     </div>
   </section>
 
-  <section class="ids-section" aria-label="Reviews">
-    <div class="ids-container">
-      <h2>Patients Love Our <span class="ids-accent">Care</span></h2>
-      <div class="ids-proof">
-        <div class="ids-review">“Exceptional experience from start to finish. The team is kind, professional, and thorough.” — A.M.</div>
-        <div class="ids-review">“Got my implant without a hitch. Clear pricing and no surprises.” — J.R.</div>
-        <div class="ids-review">“I finally love my smile. Highly recommend cosmetic work here!” — S.K.</div>
+  <!-- Before & After Section -->
+  <section class="ids-section" aria-label="Before & After" style="background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%); padding: 5rem 0; overflow: hidden;">
+    <div class="ids-container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span style="display: inline-block; background: rgba(251, 127, 42, 0.1); color: #FB7F2A; padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Real Results</span>
+        <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; letter-spacing: -0.025em;">
+          Smile <span style="color: #FB7F2A;">Transformations</span>
+        </h2>
+        <p style="font-size: 1.125rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+          See the amazing results our patients have achieved with our expert dental care
+        </p>
+      </div>
+
+      <!-- Before & After Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+        
+        <!-- Transformation 1 -->
+        <div class="transformation-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); transition: all 0.3s ease;">
+          <div style="position: relative; overflow: hidden;">
+            <!-- Before/After Images Container -->
+            <div class="before-after-slider" data-slider="1" style="position: relative; height: 280px; background: #f3f4f6; cursor: ew-resize; user-select: none;">
+              <!-- After Image (Full Width Background) -->
+              <img src="Ideal dental solutions Pictures/After /2-after.webp" alt="After Treatment" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
+              <div style="position: absolute; top: 1rem; right: 1rem; background: #FB7F2A; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600; z-index: 2;">AFTER</div>
+              
+              <!-- Before Image (Clipped Overlay) -->
+              <div class="before-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 3;">
+                <img src="Ideal dental solutions Pictures/ before pictures/2-before.webp" alt="Before Treatment" style="width: 200%; height: 100%; object-fit: cover; object-position: left center; display: block;">
+                <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">BEFORE</div>
+              </div>
+              
+              <!-- Divider Line -->
+              <div class="slider-line" style="position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #FB7F2A; z-index: 4; transform: translateX(-50%);"></div>
+              
+              <!-- Slider Handle -->
+              <div class="slider-handle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border: 3px solid #FB7F2A; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 5; cursor: grab; transition: transform 0.1s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB7F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"/>
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Complete Smile Makeover</h3>
+            <p style="color: #64748b; font-size: 0.9375rem; line-height: 1.6; margin: 0;">Dental implants and cosmetic restoration for a confident, natural-looking smile.</p>
+          </div>
+        </div>
+
+        <!-- Transformation 2 -->
+        <div class="transformation-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); transition: all 0.3s ease;">
+          <div style="position: relative; overflow: hidden;">
+            <div class="before-after-slider" data-slider="2" style="position: relative; height: 280px; background: #f3f4f6; cursor: ew-resize; user-select: none;">
+              <img src="Ideal dental solutions Pictures/After /3-after.webp" alt="After Treatment" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
+              <div style="position: absolute; top: 1rem; right: 1rem; background: #FB7F2A; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600; z-index: 2;">AFTER</div>
+              
+              <div class="before-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 3;">
+                <img src="Ideal dental solutions Pictures/ before pictures/3-before.png" alt="Before Treatment" style="width: 200%; height: 100%; object-fit: cover; object-position: left center; display: block;">
+                <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">BEFORE</div>
+              </div>
+              
+              <div class="slider-line" style="position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #FB7F2A; z-index: 4; transform: translateX(-50%);"></div>
+              
+              <div class="slider-handle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border: 3px solid #FB7F2A; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 5; cursor: grab; transition: transform 0.1s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB7F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"/>
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Cosmetic Enhancement</h3>
+            <p style="color: #64748b; font-size: 0.9375rem; line-height: 1.6; margin: 0;">Professional teeth whitening and alignment for a brighter, straighter smile.</p>
+          </div>
+        </div>
+
+        <!-- Transformation 3 -->
+        <div class="transformation-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); transition: all 0.3s ease;">
+          <div style="position: relative; overflow: hidden;">
+            <div class="before-after-slider" data-slider="3" style="position: relative; height: 280px; background: #f3f4f6; cursor: ew-resize; user-select: none;">
+              <img src="Ideal dental solutions Pictures/After /after-5.png" alt="After Treatment" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
+              <div style="position: absolute; top: 1rem; right: 1rem; background: #FB7F2A; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600; z-index: 2;">AFTER</div>
+              
+              <div class="before-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 3;">
+                <img src="Ideal dental solutions Pictures/ before pictures/before-5.webp" alt="Before Treatment" style="width: 200%; height: 100%; object-fit: cover; object-position: left center; display: block;">
+                <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">BEFORE</div>
+              </div>
+              
+              <div class="slider-line" style="position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #FB7F2A; z-index: 4; transform: translateX(-50%);"></div>
+              
+              <div class="slider-handle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border: 3px solid #FB7F2A; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 5; cursor: grab; transition: transform 0.1s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB7F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"/>
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Restorative Dentistry</h3>
+            <p style="color: #64748b; font-size: 0.9375rem; line-height: 1.6; margin: 0;">Advanced restoration techniques for damaged teeth, restoring function and beauty.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Section -->
+      <div style="text-align: center; padding: 2.5rem; background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%); border-radius: 20px; border: 2px solid #fed7aa;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; color: #0f172a; margin: 0 0 1rem 0;">Ready for Your Own Transformation?</h3>
+        <p style="font-size: 1.0625rem; color: #64748b; margin: 0 0 1.5rem 0; max-width: 500px; margin-left: auto; margin-right: auto;">Schedule your free consultation today and discover what's possible for your smile.</p>
+        <button class="ids-btn ids-btn-primary" id="openSchedulingModalBA" style="padding: 1.125rem 2.25rem; font-size: 1.0625rem; border-radius: 12px; background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); color: white; border: none; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(251, 127, 42, 0.3);">
+          <span style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Book Free Consultation
+          </span>
+        </button>
       </div>
     </div>
   </section>
 
-  <section class="ids-section ids-alt" aria-label="FAQ">
-    <div class="ids-container">
-      <h2>Frequently Asked <span class="ids-accent">Questions</span></h2>
-      <dl class="ids-faq" id="ids-faq">
-        <dt>Do you accept my insurance?</dt>
-        <dd>We work with many major PPO insurance plans and help maximize your benefits. Call us to verify your coverage.</dd>
-        <dt>Do you offer financing?</dt>
-        <dd>Yes, flexible payment options are available for qualified patients. Ask us about current financing plans.</dd>
-        <dt>Are same-day appointments available?</dt>
-        <dd>We hold space for urgent needs. When possible, we’ll see you the same day.</dd>
+  <style>
+    .transformation-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+
+  <section class="ids-section ids-alt" aria-label="FAQ" style="background: #f9fafb; padding: 5rem 0;">
+    <div class="ids-container" style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span style="display: inline-block; background: rgba(251, 127, 42, 0.1); color: #FB7F2A; padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">FAQ</span>
+        <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; letter-spacing: -0.025em;">Frequently Asked <span style="color: #FB7F2A;">Questions</span></h2>
+        <p style="font-size: 1.125rem; color: #64748b;">Get answers to common questions about our services</p>
+      </div>
+      
+      <dl class="ids-faq" id="ids-faq" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+        <dt style="border-bottom: 1px solid #e5e7eb; cursor: pointer; padding: 1.5rem 3.5rem 1.5rem 1.5rem; position: relative; font-weight: 600; font-size: 1.0625rem; color: #1e293b; transition: all 0.2s ease;">
+          Do you accept my insurance?
+          <span style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: #FB7F2A; font-weight: 400;">+</span>
+        </dt>
+        <dd style="display: none; padding: 0 1.5rem 1.5rem; margin: 0; color: #475569; line-height: 1.7; font-size: 1rem;">
+          We work with many major PPO insurance plans and help maximize your benefits. Call us to verify your coverage and we'll handle the paperwork for you.
+        </dd>
+        
+        <dt style="border-bottom: 1px solid #e5e7eb; cursor: pointer; padding: 1.5rem 3.5rem 1.5rem 1.5rem; position: relative; font-weight: 600; font-size: 1.0625rem; color: #1e293b; transition: all 0.2s ease;">
+          Do you offer financing?
+          <span style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: #FB7F2A; font-weight: 400;">+</span>
+        </dt>
+        <dd style="display: none; padding: 0 1.5rem 1.5rem; margin: 0; color: #475569; line-height: 1.7; font-size: 1rem;">
+          Yes, flexible payment options are available for qualified patients. We offer various financing plans to make dental care affordable. Ask us about current financing options.
+        </dd>
+        
+        <dt style="border-bottom: 1px solid #e5e7eb; cursor: pointer; padding: 1.5rem 3.5rem 1.5rem 1.5rem; position: relative; font-weight: 600; font-size: 1.0625rem; color: #1e293b; transition: all 0.2s ease;">
+          Are same-day appointments available?
+          <span style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: #FB7F2A; font-weight: 400;">+</span>
+        </dt>
+        <dd style="display: none; padding: 0 1.5rem 1.5rem; margin: 0; color: #475569; line-height: 1.7; font-size: 1rem;">
+          We hold space for urgent needs and emergencies. When possible, we'll see you the same day. Call us as early as possible for best availability.
+        </dd>
+
+        <dt style="cursor: pointer; padding: 1.5rem 3.5rem 1.5rem 1.5rem; position: relative; font-weight: 600; font-size: 1.0625rem; color: #1e293b; transition: all 0.2s ease;">
+          What should I bring to my first appointment?
+          <span style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: #FB7F2A; font-weight: 400;">+</span>
+        </dt>
+        <dd style="display: none; padding: 0 1.5rem 1.5rem; margin: 0; color: #475569; line-height: 1.7; font-size: 1rem;">
+          Please bring your insurance card, a valid ID, and a list of any medications you're currently taking. If you have previous dental X-rays, we can request those from your former dentist.
+        </dd>
       </dl>
     </div>
   </section>
+
+  <style>
+    #ids-faq dt:hover {
+      background: #f9fafb;
+    }
+    #ids-faq dt.active span {
+      content: '−';
+      transform: translateY(-50%) rotate(180deg);
+    }
+  </style>
+
+  <section class="ids-section" aria-label="Reviews" style="background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%); padding: 5rem 0;">
+    <div class="ids-container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span style="display: inline-block; background: rgba(251, 127, 42, 0.1); color: #FB7F2A; padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Testimonials</span>
+        <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; letter-spacing: -0.025em;">What Our Patients <span style="color: #FB7F2A;">Say</span></h2>
+        <p style="font-size: 1.125rem; color: #64748b; max-width: 600px; margin: 0 auto;">Real experiences from real patients who trust us with their smiles</p>
+      </div>
+      
+      <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border: 1px solid #f1f5f9; transition: all 0.3s ease; position: relative;">
+          <div style="color: #FB7F2A; font-size: 3rem; line-height: 1; margin-bottom: 1rem; opacity: 0.2; font-family: Georgia, serif;">"</div>
+          <p style="color: #334155; font-size: 1.0625rem; line-height: 1.7; margin: 0 0 1.5rem 0; font-style: italic;">Exceptional experience from start to finish. The team is kind, professional, and thorough. I felt completely at ease during my entire visit.</p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #FB7F2A 0%, #E56F1E 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.125rem;">A</div>
+            <div>
+              <div style="font-weight: 600; color: #1e293b; font-size: 1rem;">Amanda M.</div>
+              <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                <span style="color: #fbbf24; font-size: 0.875rem;">★★★★★</span>
+                <span style="color: #94a3b8; font-size: 0.875rem; margin-left: 0.25rem;">5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border: 1px solid #f1f5f9; transition: all 0.3s ease; position: relative;">
+          <div style="color: #FB7F2A; font-size: 3rem; line-height: 1; margin-bottom: 1rem; opacity: 0.2; font-family: Georgia, serif;">"</div>
+          <p style="color: #334155; font-size: 1.0625rem; line-height: 1.7; margin: 0 0 1.5rem 0; font-style: italic;">Got my implant without a hitch. Clear pricing and no surprises. The entire process was smooth and the results are amazing!</p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.125rem;">J</div>
+            <div>
+              <div style="font-weight: 600; color: #1e293b; font-size: 1rem;">James R.</div>
+              <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                <span style="color: #fbbf24; font-size: 0.875rem;">★★★★★</span>
+                <span style="color: #94a3b8; font-size: 0.875rem; margin-left: 0.25rem;">5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border: 1px solid #f1f5f9; transition: all 0.3s ease; position: relative;">
+          <div style="color: #FB7F2A; font-size: 3rem; line-height: 1; margin-bottom: 1rem; opacity: 0.2; font-family: Georgia, serif;">"</div>
+          <p style="color: #334155; font-size: 1.0625rem; line-height: 1.7; margin: 0 0 1.5rem 0; font-style: italic;">I finally love my smile! The cosmetic work here is outstanding. Highly recommend to anyone looking to improve their smile.</p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.125rem;">S</div>
+            <div>
+              <div style="font-weight: 600; color: #1e293b; font-size: 1rem;">Sarah K.</div>
+              <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                <span style="color: #fbbf24; font-size: 0.875rem;">★★★★★</span>
+                <span style="color: #94a3b8; font-size: 0.875rem; margin-left: 0.25rem;">5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 12px; border: 1px solid #e5e7eb;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; align-items: center;">
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #FB7F2A; margin-bottom: 0.25rem;">500+</div>
+            <div style="color: #64748b; font-size: 0.9375rem; font-weight: 500;">Happy Patients</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #FB7F2A; margin-bottom: 0.25rem;">4.8</div>
+            <div style="color: #64748b; font-size: 0.9375rem; font-weight: 500;">Average Rating</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #FB7F2A; margin-bottom: 0.25rem;">15+</div>
+            <div style="color: #64748b; font-size: 0.9375rem; font-weight: 500;">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
 
   <section class="ids-section" aria-label="Location">
     <div class="ids-container ids-card">
@@ -1026,11 +1507,129 @@
     if (phone) phone.addEventListener('input', () => { let v=phone.value.replace(/\D/g,'').slice(0,10); let o=v; if(v.length>6)o=`(${v.slice(0,3)}) ${v.slice(3,6)}-${v.slice(6)}`; else if(v.length>3)o=`(${v.slice(0,3)}) ${v.slice(3)}`; else if(v.length>0)o=`(${v}`; phone.value=o; });
     const leadForm = $('#leadForm'); const lfStatus = $('#lfStatus');
     if (leadForm) leadForm.addEventListener('submit', async (e)=>{ e.preventDefault(); lfStatus.textContent=''; const data=Object.fromEntries(new FormData(leadForm)); if(!data.name||!data.phone||!data.email||!data.service){ lfStatus.textContent='Please complete all required fields.'; return; } await new Promise(r=>setTimeout(r,600)); lfStatus.textContent='Thanks! We received your request. We will contact you shortly.'; leadForm.reset(); });
-    const modal = $('#idsModal'); const openers = $$('[data-ids-open-modal]'); const closer = $('[data-ids-close-modal]');
+    // Modal functionality
+    const modal = $('#schedulingModal');
+    const openModalBtn = $('#openSchedulingModal');
+    const openModalBtnBA = $('#openSchedulingModalBA');
+    const closeModalBtn = $('.close-modal');
+    const modalIframe = $('#KQZfzdiSjhZSSk89S37W_modal');
+
+    function openModal() {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      // Reset the iframe to ensure it loads fresh content
+      const iframeSrc = modalIframe.src;
+      modalIframe.src = '';
+      setTimeout(() => { modalIframe.src = iframeSrc; }, 100);
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    if (openModalBtn) {
+      openModalBtn.addEventListener('click', openModal);
+    }
+    
+    if (openModalBtnBA) {
+      openModalBtnBA.addEventListener('click', openModal);
+    }
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    const idsModal = $('#idsModal'); const openers = $$('[data-ids-open-modal]'); const closer = $('[data-ids-close-modal]');
     openers.forEach(b=>b.addEventListener('click',()=>{ modal.style.display='flex'; document.body.style.overflow='hidden'; }));
     closer && closer.addEventListener('click',()=>{ modal.style.display='none'; document.body.style.overflow=''; });
     modal && modal.addEventListener('click',(e)=>{ if(e.target===modal){ closer.click(); } });
-    $$('#ids-faq dt').forEach(dt=>{ dt.addEventListener('click',()=>{ const dd=dt.nextElementSibling; const shown=dd && dd.style.display==='block'; $$('#ids-faq dd').forEach(el=>el.style.display='none'); if(dd) dd.style.display= shown?'none':'block'; }); });
+    $$('#ids-faq dt').forEach(dt=>{ 
+      dt.addEventListener('click',()=>{ 
+        const dd=dt.nextElementSibling; 
+        const shown=dd && dd.style.display==='block';
+        const icon = dt.querySelector('span');
+        
+        $$('#ids-faq dd').forEach(el=>el.style.display='none'); 
+        $$('#ids-faq dt').forEach(el=>el.classList.remove('active'));
+        $$('#ids-faq dt span').forEach(el=>el.textContent='+');
+        
+        if(dd && !shown) {
+          dd.style.display='block';
+          dt.classList.add('active';
+          if(icon) icon.textContent='−';
+        }
+      }); 
+    });
+
+    // Before & After Slider Functionality
+    const sliders = $$('.before-after-slider');
+    
+    sliders.forEach(slider => {
+      const beforeOverlay = slider.querySelector('.before-overlay');
+      const sliderLine = slider.querySelector('.slider-line');
+      const sliderHandle = slider.querySelector('.slider-handle');
+      let isDragging = false;
+
+      function updateSlider(x) {
+        const rect = slider.getBoundingClientRect();
+        let position = ((x - rect.left) / rect.width) * 100;
+        
+        // Limit between 0% and 100%
+        position = Math.max(0, Math.min(100, position));
+        
+        beforeOverlay.style.width = position + '%';
+        sliderLine.style.left = position + '%';
+        sliderHandle.style.left = position + '%';
+      }
+
+      // Mouse events
+      slider.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        sliderHandle.style.cursor = 'grabbing';
+        updateSlider(e.clientX);
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.clientX);
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          sliderHandle.style.cursor = 'grab';
+        }
+      });
+
+      // Touch events for mobile
+      slider.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        const touch = e.touches[0];
+        updateSlider(touch.clientX);
+      });
+
+      document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const touch = e.touches[0];
+        updateSlider(touch.clientX);
+      });
+
+      document.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      // Click anywhere on slider to move
+      slider.addEventListener('click', (e) => {
+        if (e.target === slider || slider.contains(e.target)) {
+          updateSlider(e.clientX);
+        }
+      });
+    });
   })();
 </script>
 
