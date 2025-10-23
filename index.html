@@ -1102,37 +1102,60 @@
       }
       
       .ids-hero h1 {
-        font-size: 2rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 1.75rem !important;
+        margin-bottom: 0.875rem !important;
+        line-height: 1.2 !important;
+      }
+      
+      .ids-hero h1 span {
+        margin-top: 0.25rem !important;
       }
       
       .ids-hero p.lead {
-        font-size: 1rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 0.9375rem !important;
+        margin-bottom: 1.25rem !important;
+        line-height: 1.6 !important;
       }
       
-      /* USP Cards - Stack on Mobile */
+      /* USP Cards - 2 columns layout en mobile también */
       .ids-usp {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.75rem !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1rem !important;
       }
       
       .ids-usp div {
-        padding: 0.875rem !important;
+        padding: 0.75rem 0.625rem !important;
+      }
+      
+      .ids-usp div span {
+        font-size: 0.8125rem !important;
+        line-height: 1.3 !important;
+      }
+      
+      .ids-usp div > div {
+        width: 22px !important;
+        height: 22px !important;
+      }
+      
+      .ids-usp div > div svg {
+        width: 12px !important;
+        height: 12px !important;
       }
       
       /* CTA Buttons - Full Width on Mobile */
       .ids-cta-wrap {
         flex-direction: column !important;
         width: 100% !important;
+        max-width: 100% !important;
         gap: 0.75rem !important;
+        margin-bottom: 1.25rem !important;
       }
       
       .ids-btn {
         width: 100% !important;
-        padding: 1rem 1.5rem !important;
-        font-size: 1rem !important;
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.9375rem !important;
         justify-content: center !important;
       }
       
@@ -1353,18 +1376,19 @@
           </div>
           
           <!-- Main Heading -->
-          <h1 style="font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.1; margin: 0 0 1rem 0; color: #0f172a; font-weight: 800; letter-spacing: -0.03em; animation: fadeInUp 0.6s ease 0.1s backwards;">
-            Your Perfect Smile <span style="background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; margin-top: 0.25rem;">Starts Here</span>
+          <h1 style="font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 0 0 1rem 0; color: #0f172a; font-weight: 800; letter-spacing: -0.03em; animation: fadeInUp 0.6s ease 0.1s backwards;">
+            We'll Give You Something to Smile About
+            <span style="background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; margin-top: 0.25rem;">Starts Here</span>
           </h1>
           
           <!-- Subheading -->
-          <p class="lead" style="font-size: 1.0625rem; color: #475569; margin-bottom: 1.5rem; line-height: 1.6; max-width: 540px; animation: fadeInUp 0.6s ease 0.2s backwards;">
+          <p class="lead" style="font-size: 1rem; color: #475569; margin-bottom: 1.5rem; line-height: 1.65; max-width: 600px; animation: fadeInUp 0.6s ease 0.2s backwards;">
             Where state-of-the-art dentistry meets compassion and personalization. Dr. Moezzi and here team are setting a new standard in modern dentistry, and we welcome you to experience it for yourself. Schedule your appointment today!
           </p>
 
           <!-- CTA - Book consultation (abre modal) - Antes de las cards -->
-          <div class="ids-cta-wrap" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; animation: fadeInUp 0.6s ease 0.3s backwards; max-width: 540px;">
-            <button class="cta-primary ids-btn ids-btn-primary" id="openSchedulingModal" style="padding: 1rem 2rem; font-size: 1.0625rem; border-radius: 12px; width: 100%; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); color: white; border: none; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(63, 114, 155, 0.3); position: relative; overflow: hidden;">
+          <div class="ids-cta-wrap" style="margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease 0.3s backwards; max-width: 600px;">
+            <button class="cta-primary ids-btn ids-btn-primary" id="openSchedulingModal" style="padding: 1rem 1.75rem; font-size: 1rem; border-radius: 12px; width: 100%; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); color: white; border: none; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(63, 114, 155, 0.3); position: relative; overflow: hidden;">
               <span style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -1378,38 +1402,38 @@
           </div>
 
           <!-- Benefits List -->
-          <div class="ids-usp" role="list" style="margin-bottom: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.875rem; animation: fadeInUp 0.6s ease 0.4s backwards;">
-            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
-              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+          <div class="ids-usp" role="list" style="margin-bottom: 0.75rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; animation: fadeInUp 0.6s ease 0.4s backwards; max-width: 600px;">
+            <div role="listitem" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 0.75rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
-              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">Same-Day Appointments</span>
+              <span style="color: #1e293b; font-size: 0.875rem; font-weight: 500; line-height: 1.3;">Same-Day Appointments</span>
             </div>
-            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
-              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+            <div role="listitem" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 0.75rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
-              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">Most Insurance Accepted</span>
+              <span style="color: #1e293b; font-size: 0.875rem; font-weight: 500; line-height: 1.3;">Most Insurance Accepted</span>
             </div>
-            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
-              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+            <div role="listitem" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 0.75rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
-              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">Flexible Financing</span>
+              <span style="color: #1e293b; font-size: 0.875rem; font-weight: 500; line-height: 1.3;">Flexible Financing</span>
             </div>
-            <div role="listitem" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.2s ease;">
-              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+            <div role="listitem" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 0.75rem; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: all 0.2s ease;">
+              <div style="flex-shrink: 0; width: 24px; height: 24px; background: linear-gradient(135deg, #3F729B 0%, #1174D3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
-              <span style="color: #1e293b; font-size: 0.9375rem; font-weight: 500; line-height: 1.5;">$59 New Patient Special</span>
+              <span style="color: #1e293b; font-size: 0.875rem; font-weight: 500; line-height: 1.3;">$59 New Patient Special</span>
             </div>
           </div>
 
